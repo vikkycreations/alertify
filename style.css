@@ -1,0 +1,366 @@
+*{
+  outline: none !important;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+}
+
+.my-0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.grey-text {
+  color: #383838 !important;
+}
+
+.pink-text {
+  color: #f06292;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  width: auto;
+  cursor: pointer;
+}
+
+header {
+  height: auto;
+  background-color: #121212;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: left;
+  width: max-content;
+  padding: 5px;
+  height: 50px;
+}
+header nav .nav-logo {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 10px;
+}
+header nav .nav-btn-group .nav-btn {
+  background: none;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+header nav .nav-btn-group .btn-docs {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+header nav .nav-btn-group .nav-btn.active {
+  color: #fff;
+}
+header nav h4 {
+  display: inline-block;
+  width: max-content;
+  margin: 0;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+main .intro-wrapper {
+  background: linear-gradient(45deg, #0490ee, #6fff6f);
+  padding: 5rem 1rem;
+  color: #fff;
+  text-align: center;
+}
+main .intro-wrapper .content {
+  width: fit-content;
+  text-align: left;
+  margin: 0 auto 0 5rem;
+}
+main .intro-wrapper .content h1 {
+  font-size: 3.2rem;
+  font-weight: 550;
+}
+main .intro-wrapper .content p {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+main .intro-wrapper .content .nav-action-btn {
+  margin: 10px;
+  margin-left: 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  background: none;
+  border: 1.5px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+main .intro-wrapper .content .nav-action-btn:hover {
+  color: black;
+  background-color: #fff;
+}
+@media (max-width: 320px) {
+  main .intro-wrapper .content .nav-action-btn {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  main .intro-wrapper .content {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 576px) {
+  main .intro-wrapper {
+    padding: 2rem;
+  }
+}
+main .features {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3rem;
+}
+main .features .feature {
+  min-width: 100px;
+  max-width: max-content;
+  margin: 1rem;
+}
+main .features .feature h4 {
+  color: #888;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+main .features .feature p {
+  line-height: 24px;
+}
+@media (max-width: 767px) {
+  main .features {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    padding: 3rem 6rem;
+  }
+}
+@media (max-width: 576px) {
+  main .features {
+    flex-direction: column;
+    padding: 3rem 2rem;
+  }
+}
+
+h1.heading {
+  font-size: 2rem;
+}
+
+.docs {
+  overflow-y: auto;
+}
+.docs article {
+  padding: 2rem 10rem;
+}
+.docs article .alertify-options {
+  margin-top: 2rem;
+}
+.docs article .alertify-options .options {
+  margin-bottom: 3rem;
+}
+.docs article .alertify-options .options .options-title {
+  background-color: rgba(240, 98, 146, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  color: #f06292;
+  font-size: 1.05rem;
+}
+.docs article .article-title .heading {
+  display: inline-block;
+  color: #121212;
+  margin: 1rem 0 1.5rem 0;
+  font-weight: 550;
+}
+.docs article .article-title .heading:hover .title-link {
+  display: inline-block;
+}
+.docs article .article-title .title-link {
+  display: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #0080ff;
+  transform: rotate(135deg);
+  margin-left: 5px;
+}
+.docs article .article-content {
+  font-size: 16px;
+  line-height: 30px;
+}
+.docs article .src-code {
+  margin: 1rem auto;
+  background: #283142;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 100px;
+  max-width: 100%;
+}
+.docs article .src-code::-webkit-scrollbar {
+  height: 6px;
+}
+.docs article .src-code::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+.docs article .src-code::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #60708a;
+}
+.docs article .src-code code[class*=lang-] {
+  display: block;
+  color: #eceff1;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+  line-height: 24px;
+  padding: 1rem;
+  white-space: nowrap;
+}
+.docs article .src-code code[class*=lang-] .line {
+  margin: 0.3rem 0;
+}
+.docs article .src-code code[class*=lang-] .tag {
+  color: #4dd0e1;
+}
+.docs article .src-code code[class*=lang-] .com {
+  color: #f06292;
+}
+.docs article .src-code code[class*=lang-] .atr,
+.docs article .src-code code[class*=lang-] .fkwd {
+  color: #ce93d8;
+}
+.docs article .src-code code[class*=lang-] .str {
+  color: #9ccc65;
+}
+.docs article .src-code code[class*=lang-] .pun {
+  color: #eceff1;
+}
+.docs article .src-code code[class*=lang-] .kwd {
+  color: #4dd0e1;
+}
+.docs article .src-code code[class*=lang-] .brc {
+  color: #29b6f6;
+}
+.docs article .src-code code[class*=lang-] .bool {
+  color: #3b78e7;
+}
+.docs article .result-preview {
+  margin: 0.5rem 0 1rem 0;
+}
+.docs article .result-preview .preview-btn {
+  -webkit-appearance: button;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #3b78e7;
+  font-size: 1rem;
+}
+.docs article .result-preview .preview-btn:hover {
+  cursor: pointer;
+  background-color: #1a5cd5;
+}
+.docs article .result-preview .preview-btn:focus {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #447ee8;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #447ee8;
+}
+.docs article .result-preview .preview-btn.info {
+  -webkit-appearance: button;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 3px;
+  color: white;
+  background-color: #0251a0;
+  font-size: 1rem;
+}
+.docs article .result-preview .preview-btn.info:hover {
+  cursor: pointer;
+  background-color: #01386e;
+}
+.docs article .result-preview .preview-btn.info:focus {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #0256aa;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #0256aa;
+}
+.docs article .result-preview .preview-btn.success {
+  -webkit-appearance: button;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 3px;
+  color: white;
+  background-color: #3fd63f;
+  font-size: 1rem;
+}
+.docs article .result-preview .preview-btn.success:hover {
+  cursor: pointer;
+  background-color: #28ba28;
+}
+.docs article .result-preview .preview-btn.success:focus {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #47d847;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #47d847;
+}
+.docs article .result-preview .preview-btn.warning {
+  -webkit-appearance: button;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 3px;
+  color: white;
+  background-color: #f29c1f;
+  font-size: 1rem;
+}
+.docs article .result-preview .preview-btn.warning:hover {
+  cursor: pointer;
+  background-color: #d2810c;
+}
+.docs article .result-preview .preview-btn.warning:focus {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #f3a029;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #f3a029;
+}
+.docs article .result-preview .preview-btn.danger {
+  -webkit-appearance: button;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 3px;
+  color: white;
+  background-color: #ff330f;
+  font-size: 1rem;
+}
+.docs article .result-preview .preview-btn.danger:hover {
+  cursor: pointer;
+  background-color: #db2100;
+}
+.docs article .result-preview .preview-btn.danger:focus {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #ff3c19;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem #ff3c19;
+}
+@media (max-width: 1024px) {
+  .docs article {
+    padding: 2rem 7rem;
+  }
+}
+@media (max-width: 767px) {
+  .docs article {
+    padding: 2rem 2rem;
+  }
+}
+

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Alertify.js - Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/alertify.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <img class="nav-logo" src="./images/logo.svg" alt="logo" />
+      <div class="nav-btn-group">
+        <a href="./index.html"><button class="nav-btn btn-home">Home</button></a>
+        <a href="./docs.html"><button class="nav-btn btn-docs active">Docs</button></a>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="docs">
+    <article>
+      <a href="#why-alertify" class="article-title">
+        <h1 class="heading" id="why-alertify">Why Alertify?<img class="title-link" src="./images/link.svg" alt="link">
+        </h1>
+      </a>
+      <div class="article-content">
+        Think of an alert notification for successfull payment on a service and you are using the browser alert to
+        indicate the status of the payment. The default browser alert will look like <span
+          style="display: inline-block; color: #3b78e7; border-bottom: 1px dotted #3b78e7; cursor: pointer;"
+          id="default-alert" onclick="alert('Payment Successfull!')">this</span>. Now let's see what alertify can do
+        <span style="display: inline-block; color: #3b78e7; border-bottom: 1px dotted #3b78e7; cursor: pointer;"
+          id="preview-intro">Try
+          this!</span>.
+        <p>You see that how cool than the default one.</p>
+      </div>
+    </article>
+    <article>
+      <a href="#adding-alertify-to-your-project" class="article-title">
+        <h1 class="heading" id="adding-alertify-to-your-project">Add Alertify to your project <img class="title-link"
+            src="./images/link.svg" alt="link"></h1>
+
+      </a>
+      <div class="article-content">
+        To use Alertify just add the follwing lines to your code.
+      </div>
+      <div class="src-code">
+        <code class="lang-html">
+            <div class="line"><span class="com">&lt;!--Stylesheet--></span></div>
+            <div class="line">
+              <span class="tag">&lt;link <span class="atr">rel</span><span class="pun">=</span><span class="str">"stylesheet"</span><span class="atr"> href</span><span class="pun">=</span><span class="str">"https://cdn.jsdelivr.net/gh/vikkycreations/alertify@1.0/dist/alertify.min.css"</span><span class="tag"> /&gt;</span>
+              </span><span>&NonBreakingSpace;</span>
+            </div>
+            &nbsp;
+            <div class="line"><span class="com">&lt;!--core js file--></span></div>
+            <div class="line">
+              <span class="tag">
+                &lt;script <span class="atr">src</span><span class="pun">=</span><span class="str">"https://cdn.jsdelivr.net/gh/vikkycreations/alertify@1.0/dist/alertify.min.js"</span>>&lt;/script>
+              </span>
+            </div>
+          </code>
+      </div>
+    </article>
+
+    <article>
+      <a href="#initialisation-usage" class="article-title">
+        <h1 class="heading" id="initialisation-usage">Initialisation & usage <img class="title-link"
+            src="./images/link.svg" alt="link"></h1>
+      </a>
+      <div class="article-content">
+        To initialize an alert you have to create an new instance of the Alertify object.
+      </div>
+      <div class="src-code">
+        <code class="lang-js">
+                  <div class="line">
+                    <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="str">"Hello World!.."</span><span class="pun">);</span><span>&NonBreakingSpace;</span>
+                  </div>
+                </code>
+      </div>
+      <div class="result-preview">
+
+        <button class="preview-btn" id="preview-1">Try this!</button>
+      </div>
+      <div class="article-content">
+        see just as simple as that.
+      </div>
+    </article>
+
+    <article>
+      <a href="#customization" class="article-title">
+        <h1 class="heading" id="customization">Customization <img class="title-link" src="./images/link.svg" alt="link">
+        </h1>
+      </a>
+      <div class="article-content">
+        Alertify has various properties to customize the popup based on your interest. To customize the popup you need
+        to pass in a JSON object with the options and their values. The various options a <span
+          class="pink-text">title</span>, <span class="pink-text">text</span>, <span class="pink-text">type</span>,
+        <span class="pink-text">position</span>, <span class="pink-text">showSuccessbtn</span>, <span
+          class="pink-text">showCancelbtn</span>, <span class="pink-text">openBy</span>, <span
+          class="pink-text">closeBy</span>.
+
+      </div>
+      <ul class="alertify-options">
+        <li>
+          <div class="options">
+            <span class="options-title">title</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">title</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="str">''</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span>
+                          <span>&NonBreakingSpace;</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">title: </span><span class="str">"Welcome"</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Give your popup a title based on purpose of it.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-2">Try this!</button>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="options">
+            <span class="options-title">text</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">text</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="str">''</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span><span>&NonBreakingSpace;</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">text: </span><span class="str">"Hello World!.."</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Message shown on the popup to the users.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-3">Try this!</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">type</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">type</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="str">''</span></div>
+                      <div class="line"><span class="tag">values: </span><span class="str">'info'</span><span class="pun">, </span><span class="str">'success'</span><span class="pun">, </span><span class="str">'warning'</span><span class="pun">, </span><span class="str">'danger'</span><span>&NonBreakingSpace;</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">type: </span><span class="str">"success"</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Make popups based on the nature of the message.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn success" id="preview-4">success</button>
+              &nbsp;
+              <button class="preview-btn info" id="preview-5">info</button>
+              &nbsp;
+              <button class="preview-btn warning" id="preview-6">warning</button>
+              &nbsp;
+              <button class="preview-btn danger" id="preview-7">danger</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">position</span>
+            <div class="src-code">
+              <code class="lang-js">
+                  <div class="line">
+                    <div class="line"><span class="tag">name: </span><span class="pun">position</span></div>
+                    <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                    <div class="line"><span class="tag">defaultValue: </span><span class="str">'top'</span></div>
+                    <div class="line"><span class="tag">values: </span><span class="str">'top'</span><span class="pun">, </span><span class="str">'center'</span><span class="pun">, </span><span class="str">'bottom'</span><span>&NonBreakingSpace;</span></div>
+                    <br>
+                    <div class="line">
+                      <span class="com">//code</span>
+                    </div>
+                    <div class="line">
+                      <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span>
+                      </div>
+                    <div class="line">
+                      &nbsp;&nbsp;<span class="pun">position: </span><span class="str">'center'</span><span class="pun">,</span>
+                    </div>
+                    <div class="line">
+                      <span class="pun">&nbsp;&nbsp;...</span>
+                    </div>
+                    <div class="line">
+                      <span class="brc">}</span><span class="pun">);</span>
+                    </div>
+                  </div>
+                </code>
+            </div>
+            <div>
+              Align your popup vertically.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-20">Top</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-21">Center</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-22">Bottom</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">showSuccessbtn</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">showSuccessbtn</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">Boolean</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="bool">true</span></div>
+                      <div class="line"><span class="tag">values: </span><span class="bool">true</span><span class="pun">, </span><span class="bool">false</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span><span>&NonBreakingSpace;</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">showSuccessbtn: </span><span class="bool">false</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Toggle the display of success button.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-8">Try this!</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-9">default</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">showCancelbtn</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">showCancelbtn</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">Boolean</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="bool">false</span></div>
+                      <div class="line"><span class="tag">values: </span><span class="bool">true</span><span class="pun">, </span><span class="bool">false</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span><span>&NonBreakingSpace;</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">showCancelbtn: </span><span class="bool">true</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Toggle the display of cancel button.
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-10">Try this!</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-11">default</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">openBy</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">openBy</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="str">'ZoomIn'</span></div>
+                      <div class="line"><span class="tag">values: </span><span class="str">'ZoomIn'</span><span class="pun">, </span><span class="str">'SlideUpIn'</span><span class="pun">, </span><span class="str">'SlideDownIn'</span><span class="pun">, </span><span class="str">'SlideLeftIn'</span><span class="pun">, </span><span class="str">'SlideRightIn'</span><span>&NonBreakingSpace;</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span><span>&NonBreakingSpace;</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">openBy: </span><span class="str">'SlideUpIn'</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Make your popup appear in a cool way!
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-12">SlideUpIn</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-13">SlideDownIn</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-14">SlideLeftIn</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-15">SlideRightIn</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="options">
+            <span class="options-title">closeBy</span>
+            <div class="src-code">
+              <code class="lang-js">
+                    <div class="line">
+                      <div class="line"><span class="tag">name: </span><span class="pun">closeBy</span></div>
+                      <div class="line"><span class="tag">type: </span><span class="pun">string</span></div>
+                      <div class="line"><span class="tag">defaultValue: </span><span class="str">'ZoomOut'</span></div>
+                      <div class="line"><span class="tag">values: </span><span class="str">'ZoomOut'</span><span class="pun">, </span><span class="str">'SlideUpOut'</span><span class="pun">, </span><span class="str">'SlideDownOut'</span><span class="pun">, </span><span class="str">'SlideLeftOut'</span><span class="pun">, </span><span class="str">'SlideRightOut'</span><span>&NonBreakingSpace;</span></div>
+                      <br>
+                      <div class="line">
+                        <span class="com">//code</span>
+                      </div>
+                      <div class="line">
+                        <span class="kwd">var </span><span class="pun">customerAlert = </span><span class="kwd">new </span><span class="fkwd">alertify</span><span class="pun">(</span><span class="brc">{</span>
+                        </div>
+                      <div class="line">
+                        &nbsp;&nbsp;<span class="pun">closeBy: </span><span class="str">'SlideUpOut'</span><span class="pun">,</span>
+                      </div>
+                      <div class="line">
+                        <span class="pun">&nbsp;&nbsp;...</span>
+                      </div>
+                      <div class="line">
+                        <span class="brc">}</span><span class="pun">);</span>
+                      </div>
+                    </div>
+                  </code>
+            </div>
+            <div>
+              Make your popup disappear in a cool way!
+            </div>
+            <div class="result-preview">
+
+              <button class="preview-btn" id="preview-16">SlideUpOut</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-17">SlideDownOut</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-18">SlideLeftOut</button>
+              &nbsp;
+              <button class="preview-btn" id="preview-19">SlideRightOut</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </article>
+
+  </main>
+
+  <script src="./dist/alertify.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>

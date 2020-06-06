@@ -1,0 +1,560 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 10 version
+*/
+
+$xs : 0;
+$s  : 320px;
+$sm : 576px;
+$md : 768px;
+$lg : 992px;
+$xl :1200px;
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing        : border-box;
+  outline           : none !important;
+}
+
+@mixin responsive($minWidth) {
+  @media (min-width: + $minWidth) {
+    @content;
+  }
+}
+
+@mixin animate($anime) {
+  -webkit-animation: 0.4s ease forwards $anime;
+  animation        : 0.4s ease forwards $anime;
+}
+
+@mixin flex-align($v1, $v2) {
+  -webkit-box-align: $v1;
+  -ms-flex-align   : $v1;
+  align-items      : $v2;
+}
+
+@mixin flex() {
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+@mixin border-top($size, $color) {
+  border-top: $size solid $color;
+}
+
+@mixin translateY($value) {
+  transform        : translateY($value);
+  -webkit-transform: translateY($value);
+  -moz-transform   : translateY($value);
+  -ms-transform    : translateY($value);
+  -o-transform     : translateY($value);
+}
+
+@mixin translateX($value) {
+  transform        : translateX($value);
+  -webkit-transform: translateX($value);
+  -moz-transform   : translateX($value);
+  -ms-transform    : translateX($value);
+  -o-transform     : translateX($value);
+}
+
+@mixin scale($value) {
+  transform        : scale($value);
+  -webkit-transform: scale($value);
+  -moz-transform   : scale($value);
+  -ms-transform    : scale($value);
+  -o-transform     : scale($value);
+}
+
+@mixin btn-Shadow($colorvalue) {
+  -webkit-box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.15rem lighten($color:$colorvalue, $amount: 2);
+  box-shadow        : 0 0 0 0.07rem #fff, 0 0 0 0.15rem lighten($color:$colorvalue, $amount: 2);
+}
+
+@mixin alertify-btn($colorValue, $textColor) {
+  -webkit-appearance: button;
+  display           : inline-block;
+  padding           : 7px 15px;
+  border            : none;
+  background-color  : $colorValue;
+  color             : $textColor;
+  cursor            : pointer;
+  text-align        : center;
+  border-radius     : 3px;
+  font-size         : 15px;
+
+  &:hover {
+    background-color: darken($color: $colorValue, $amount: 10);
+  }
+
+  &:focus {
+    @include btn-Shadow($colorValue);
+  }
+}
+
+@mixin px-4 {
+  padding: 0 2rem;
+}
+
+body {
+  margin : 0;
+  padding: 0;
+}
+
+#alertify-wrapper {
+  display : none;
+  position: fixed;
+  @include flex-align(center, center);
+  width              : 100%;
+  min-height         : 100vh;
+  height             : 100px;
+  overflow           : hidden;
+  padding            : 30px 0;
+  margin             : 0;
+  top                : 0;
+  opacity            : 0;
+  background-color   : rgba($color: #000000, $alpha: 0.5);
+  z-index            : 9999 !important;
+
+  @include responsive($sm) {
+    @include flex-align(start, flex-start);
+  }
+
+  &.show {
+    @include flex();
+    opacity: 1 !important;
+  }
+
+  &.top {
+    @include flex-align(start, flex-start)
+  }
+
+  &.center {
+    @include flex-align(center, center)
+  }
+
+  &.bottom {
+    @include flex-align(end, flex-end)
+  }
+
+  .container {
+    font-family     : 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width           : 350px;
+    height          : max-content;
+    margin          : 2rem auto;
+    background-color: #fff;
+    text-align      : center;
+    border-radius   : 5px;
+    transition      : all 0.4s ease;
+    opacity         : 0;
+
+    @include responsive($s) {
+      width: 90%;
+    }
+
+    @include responsive($sm) {
+      width: 325px;
+    }
+
+
+    .alertify-type-icon {
+      display: block;
+      margin : 1.5rem auto 0rem auto;
+      width  : 2.75rem;
+      height : 2.75rem;
+    }
+
+    h4 {
+      font-size  : 1.5rem;
+      text-align : center;
+      margin     : 1.5rem auto 1.5rem auto;
+      font-weight: 550;
+    }
+
+    .content {
+      font-size  : 1rem;
+      margin     : 1.5rem 0;
+      line-height: 24px;
+      text-align : center;
+      max-height : 250px;
+      overflow   : hidden;
+      overflow-y : auto;
+      @include px-4();
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: none;
+        text-align: center;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius   : 3px;
+        background-color: #c6c9ce;
+      }
+    }
+
+    .alertify-actions {
+      @include flex();
+      margin               : 1.5rem 0;
+      -webkit-box-orient   : horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction   : row;
+      flex-direction       : row;
+      -webkit-box-align    : center;
+      -ms-flex-align       : center;
+      align-items          : center;
+      -webkit-box-pack     : end;
+      -ms-flex-pack        : end;
+      justify-content      : flex-end;
+      @include px-4();
+
+      .alertify-successbtn {
+        @include alertify-btn(rgb(2, 81, 160), white);
+      }
+
+      .alertify-cancelbtn {
+        @include alertify-btn(#888, white);
+        margin-right: 15px;
+      }
+
+      .alertify-successbtn[data-type='success'] {
+        @include alertify-btn(rgb(63, 214, 63), white);
+      }
+
+      .alertify-successbtn[data-type='warning'] {
+        @include alertify-btn(#f29c1f, white);
+      }
+
+      .alertify-successbtn[data-type='danger'] {
+        @include alertify-btn(rgb(255, 51, 15), white);
+      }
+    }
+
+    .alertify-footer {
+      font-size : 12px;
+      padding   : 10px 0;
+      margin-top: 1.5rem;
+      color     : #aaa;
+      text-align: center;
+      @include border-top(0.5px, #aaa);
+    }
+
+  }
+
+
+
+}
+
+
+.container.ZoomIn {
+  @include animate(ZoomIn);
+  animation-delay: 0.05s;
+}
+
+.container.ZoomOut {
+  @include animate(ZoomOut);
+}
+
+.container.SlideUpIn {
+  @include animate(SlideUpIn);
+  animation-delay: 0.05s;
+}
+
+.container.SlideUpOut {
+  @include animate(SlideUpOut);
+}
+
+.container.SlideDownIn {
+  @include animate(SlideDownIn);
+  animation-delay: 0.05s;
+}
+
+.container.SlideDownOut {
+  @include animate(SlideDownOut)
+}
+
+.container.SlideLeftIn {
+  @include animate(SlideLeftIn);
+  animation-delay: 0.05s;
+}
+
+.container.SlideLeftOut {
+  @include animate(SlideLeftOut);
+}
+
+.container.SlideRightIn {
+  @include animate(SlideRightIn);
+  animation-delay: 0.05s;
+}
+
+.container.SlideRightOut {
+  @include animate(SlideRightOut);
+}
+
+
+
+@-webkit-keyframes ZoomIn {
+  from {
+    @include scale(0);
+    opacity: 0;
+  }
+
+  70% {
+    @include scale(1.1);
+  }
+
+  to {
+    @include scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes ZoomIn {
+  from {
+    @include scale(0);
+    opacity: 0;
+  }
+
+  70% {
+    @include scale(1.1);
+  }
+
+  to {
+    @include scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes ZoomOut {
+  from {
+    @include scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    @include scale(1.1);
+  }
+
+  to {
+    @include scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes ZoomOut {
+  from {
+    @include scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    @include scale(1.1);
+  }
+
+  to {
+    @include scale(0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes SlideUpIn {
+  from {
+    opacity: 0;
+    @include translateY(100%);
+  }
+
+  70% {
+    @include translateY(-10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateY(0%);
+  }
+}
+
+@keyframes SlideUpIn {
+  from {
+    opacity: 0;
+    @include translateY(100%);
+  }
+
+  70% {
+    @include translateY(-10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateY(0%);
+  }
+}
+
+@-webkit-keyframes SlideUpOut {
+  from {
+    opacity: 1;
+    @include translateY(0);
+  }
+
+  30% {
+    @include translateY(10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateY(-100%);
+  }
+}
+
+@keyframes SlideUpOut {
+  from {
+    opacity: 1;
+    @include translateY(0);
+  }
+
+  30% {
+    @include translateY(10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateY(-100%);
+  }
+}
+
+@-webkit-keyframes SlideDownIn {
+  from {
+    opacity: 0;
+    @include translateY(-100%);
+  }
+
+  70% {
+    @include translateY(10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateY(0%);
+  }
+}
+
+@keyframes SlideDownIn {
+  from {
+    opacity: 0;
+    @include translateY(-100%);
+  }
+
+  70% {
+    @include translateY(10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateY(0%);
+  }
+}
+
+@-webkit-keyframes SlideDownOut {
+  from {
+    opacity: 1;
+    @include translateY(0%);
+  }
+
+  30% {
+    @include translateY(-10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateY(100%);
+  }
+}
+
+@keyframes SlideDownOut {
+  from {
+    opacity: 1;
+    @include translateY(0%);
+  }
+
+  30% {
+    @include translateY(-10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateY(100%);
+  }
+}
+
+@keyframes SlideLeftIn {
+  from {
+    opacity: 0;
+    @include translateX(-100%);
+  }
+
+  70% {
+    @include translateX(10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateX(0%);
+  }
+}
+
+@keyframes SlideLeftOut {
+  from {
+    opacity: 1;
+    @include translateX(0);
+  }
+
+  30% {
+    @include translateX(10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateX(-100%);
+  }
+}
+
+@keyframes SlideRightIn {
+  from {
+    opacity: 0;
+    @include translateX(100%);
+  }
+
+  70% {
+    @include translateX(-10%);
+  }
+
+  to {
+    opacity: 1;
+    @include translateX(0%);
+  }
+}
+
+@keyframes SlideRightOut {
+  from {
+    opacity: 1;
+    @include translateX(0);
+  }
+
+  30% {
+    @include translateX(-10%);
+  }
+
+  to {
+    opacity: 0;
+    @include translateX(100%);
+  }
+}
