@@ -8,10 +8,10 @@ Include alertify in your project by adding the below lines of code.
 
 ```HTML
 <!--Stylesheet-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vikkycreations/alertify@1.0/dist/alertify.min.css" />  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vikkycreations/alertify/dist/alertify.min.css" />  
  
 <!--core js file-->
-<script src="https://cdn.jsdelivr.net/gh/vikkycreations/alertify@1.0/dist/alertify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/vikkycreations/alertify/dist/alertify.min.js"></script>
 ```
 
 ## Usage
